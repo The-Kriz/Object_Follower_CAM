@@ -14,6 +14,7 @@ void setup()
   Wire.begin(0x4);          
   Wire.onReceive(receiveEvent);
 }
+
 void receiveEvent() 
 {
   while (Wire.available()) 
@@ -31,3 +32,18 @@ void receiveEvent()
 
   }
 }
+
+void loop() 
+{
+  delay(100);
+}
+
+void move (int val)
+{ 
+  if (position <= 178 && position >= 2 )
+  {
+    position += val;
+  }
+  myServo1.write(position);
+}
+ 
